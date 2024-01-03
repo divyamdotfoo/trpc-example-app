@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { router, publicProcedure as publicProcedure } from "../trpc";
+import { router, publicProcedure } from "../trpc";
 import { db } from "../db";
 export const userRouter = router({
   getUser: publicProcedure
