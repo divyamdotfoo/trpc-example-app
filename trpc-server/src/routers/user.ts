@@ -2,6 +2,9 @@ import { z } from "zod";
 import { router, publicProcedure } from "../trpc";
 import { db } from "../db";
 export const userRouter = router({
+  getAll: publicProcedure
+    .input({})
+    .query(async (o) => await db.user.getAllUser()),
   getUser: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(async (opts) => {

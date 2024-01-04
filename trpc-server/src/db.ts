@@ -1,7 +1,12 @@
 import prisma from "./prismaClient";
-import { Post, Prisma, Tag } from "@prisma/client";
+import { Prisma, Tag } from "@prisma/client";
 export const db = {
   user: {
+    getAllUser: async () => {
+      const users = await prisma.user.findMany({});
+      if (!users.length) return null;
+      return users;
+    },
     createUser: async (name: string) => {
       const user = await prisma.user.create({
         data: {
